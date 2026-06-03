@@ -1,7 +1,7 @@
-import { Factory, Car, Film, UtensilsCrossed, Building2, Package, Truck, Flame } from 'lucide-react'
+import { FlaskConical, Building2, Network, HardHat, Briefcase, Database, Activity } from 'lucide-react'
 import { content } from '../config/content'
 
-const iconMap = { Factory, Car, Film, UtensilsCrossed, Building2, Package, Truck, Flame }
+const iconMap = { FlaskConical, Building2, Network, HardHat, Briefcase, Database, Activity }
 
 export default function Industries() {
   const { heading, subheading, items } = content.industries

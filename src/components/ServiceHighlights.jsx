@@ -1,7 +1,7 @@
-import { Lightbulb, Wind, Sun, BadgeDollarSign, Hammer } from 'lucide-react'
+import { LayoutDashboard, Cpu, Network, Server, BookOpen } from 'lucide-react'
 import { content } from '../config/content'
 
-const iconMap = { Lightbulb, Wind, Sun, BadgeDollarSign, Hammer }
+const iconMap = { LayoutDashboard, Cpu, Network, Server, BookOpen }
 
 export default function ServiceHighlights() {
   const { items } = content.serviceHighlights

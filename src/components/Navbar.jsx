@@ -66,7 +66,7 @@ export default function Navbar() {
 
           {/* Desktop nav */}
           <div className="hidden lg:flex items-center gap-1">
-            {content.nav.map((item) => (
+            {content.nav.filter((item) => !item.hidden).map((item) => (
               <div
                 key={item.label}
                 className="relative"
@@ -116,7 +116,7 @@ export default function Navbar() {
         style={{ backgroundColor: 'var(--section-dark)' }}
       >
         <div className="px-4 pt-2 pb-6 space-y-1">
-          {content.nav.map((item) => (
+          {content.nav.filter((item) => !item.hidden).map((item) => (
             <div key={item.label}>
               <button
                 className="flex items-center justify-between w-full px-3 py-3 text-sm font-semibold text-white/90 hover:text-white border-b border-white/10"

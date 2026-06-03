@@ -1,7 +1,7 @@
-import { Lightbulb, Wind, Sun, TrendingUp, Briefcase } from 'lucide-react'
+import { LayoutDashboard, Code2, FileText, Server, BookOpen } from 'lucide-react'
 import { content } from '../config/content'
 
-const iconMap = { Lightbulb, Wind, Sun, TrendingUp, Briefcase }
+const iconMap = { LayoutDashboard, Code2, FileText, Server, BookOpen }
 
 export default function ServicesOverview() {
   const { heading, subheading, items } = content.services
