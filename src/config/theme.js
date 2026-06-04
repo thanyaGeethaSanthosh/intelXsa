@@ -15,9 +15,10 @@ export const theme = {
     sectionDark: '#111111',   // Very dark — icon grids, dark cards
 
     // ── Text ───────────────────────────────────────────────────────
-    textBase:    '#1a1a1a',   // Primary body text (on light bg)
-    textMuted:   '#888888',   // Secondary / muted text
-    textFaint:   '#cccccc',   // Faint text on dark backgrounds
+    textBase:      '#1a1a1a', // Primary body text (on light bg)
+    textMuted:     '#888888', // Secondary / muted text
+    textFaint:     '#cccccc', // Faint text on dark backgrounds
+    headingOnDark: '#ffffff', // Section headings placed on image/dark backgrounds
 
     // ── UI chrome ─────────────────────────────────────────────────
     borderBase:  '#e0e0e0',   // Dividers and borders

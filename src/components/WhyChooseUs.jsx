@@ -11,7 +11,7 @@ export default function WhyChooseUs() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <p className="eyebrow mb-3">{eyebrow}</p>
-          <h2 className="section-heading text-white mb-5 whitespace-pre-line">{heading}</h2>
+          <h2 className="section-heading mb-5 whitespace-pre-line" style={{ color: 'var(--heading-on-dark)' }}>{heading}</h2>
           <p className="text-white/75 text-lg leading-relaxed mb-8">{description}</p>
 
           <ul className="space-y-3 mb-10">

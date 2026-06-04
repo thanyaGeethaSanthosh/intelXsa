@@ -10,7 +10,7 @@ export default function CallToAction() {
     >
       <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <p className="eyebrow mb-4">Let's Talk</p>
-        <h2 className="section-heading text-white mb-5">{heading}</h2>
+        <h2 className="section-heading mb-5" style={{ color: 'var(--heading-on-dark)' }}>{heading}</h2>
         <p className="text-lg text-white/75 leading-relaxed mb-10">{description}</p>
         <a href="mailto:info@magenergy.com" className="btn-accent text-sm">
           {cta}
