@@ -1,27 +1,22 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import ScrollToTop from './components/ScrollToTop'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import ServiceHighlights from './components/ServiceHighlights'
-import WhyChooseUs from './components/WhyChooseUs'
-import ServicesOverview from './components/ServicesOverview'
-import Industries from './components/Industries'
-import Testimonial from './components/Testimonial'
-import CallToAction from './components/CallToAction'
 import Footer from './components/Footer'
+import HomePage from './pages/HomePage'
+import ServicePage from './pages/ServicePage'
 
 export default function App() {
   return (
-    <>
+    <BrowserRouter>
+      <ScrollToTop />
       <Navbar />
       <main>
-        <Hero />
-        <ServiceHighlights />
-        <WhyChooseUs />
-        <ServicesOverview />
-        <Industries />
-        <Testimonial />
-        <CallToAction />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/services/:slug" element={<ServicePage />} />
+        </Routes>
       </main>
       <Footer />
-    </>
+    </BrowserRouter>
   )
 }
