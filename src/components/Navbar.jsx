@@ -1,6 +1,30 @@
 import { useState, useRef, useEffect } from 'react'
-import { Zap, ShoppingCart, Menu, X, ChevronDown } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { Zap, Menu, X, ChevronDown } from 'lucide-react'
 import { content } from '../config/content'
+
+function NavChild({ item }) {
+  if (item.href.startsWith('/')) {
+    return (
+      <Link
+        to={item.href}
+        className="block px-5 py-3 text-sm font-medium hover:bg-section-alt transition-colors"
+        style={{ color: 'var(--text-base)' }}
+      >
+        {item.label}
+      </Link>
+    )
+  }
+  return (
+    <a
+      href={item.href}
+      className="block px-5 py-3 text-sm font-medium hover:bg-section-alt transition-colors"
+      style={{ color: 'var(--text-base)' }}
+    >
+      {item.label}
+    </a>
+  )
+}
 
 function DropdownMenu({ items, isOpen }) {
   return (
@@ -11,22 +35,14 @@ function DropdownMenu({ items, isOpen }) {
       style={{ borderColor: 'var(--accent)' }}
     >
       {items.map((item) => (
-        <a
-          key={item}
-          href="#"
-          className="block px-5 py-3 text-sm font-medium hover:bg-section-alt transition-colors"
-          style={{ color: 'var(--text-base)' }}
-          onClick={(e) => e.preventDefault()}
-        >
-          {item}
-        </a>
+        <NavChild key={item.label} item={item} />
       ))}
     </div>
   )
 }
 
 export default function Navbar() {
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const [mobileOpen, setMobileOpen]       = useState(false)
   const [activeDropdown, setActiveDropdown] = useState(null)
   const [mobileExpanded, setMobileExpanded] = useState(null)
   const navRef = useRef(null)
@@ -52,7 +68,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
 
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 flex-shrink-0">
+          <Link to="/" className="flex items-center gap-2 flex-shrink-0">
             <div
               className="flex items-center justify-center w-8 h-8"
               style={{ backgroundColor: 'var(--accent)' }}
@@ -62,7 +78,7 @@ export default function Navbar() {
             <span className="text-white font-bold text-lg tracking-wide">
               {content.company.name}
             </span>
-          </a>
+          </Link>
 
           {/* Desktop nav */}
           <div className="hidden lg:flex items-center gap-1">
@@ -87,14 +103,7 @@ export default function Navbar() {
 
           {/* Right side */}
           <div className="flex items-center gap-4">
-            <button className="hidden lg:flex items-center gap-1.5 text-white/80 hover:text-white transition-colors">
-              <ShoppingCart size={18} />
-              <span className="text-sm font-medium">0</span>
-            </button>
-            <a
-              href="#contact"
-              className="hidden lg:block btn-accent text-xs py-2.5 px-5"
-            >
+            <a href="#contact" className="hidden lg:block btn-accent text-xs py-2.5 px-5">
               Get Started
             </a>
             <button
@@ -132,16 +141,27 @@ export default function Navbar() {
               </button>
               {mobileExpanded === item.label && (
                 <div className="pl-4 mt-1 space-y-1">
-                  {item.children.map((child) => (
-                    <a
-                      key={child}
-                      href="#"
-                      className="block px-3 py-2 text-sm text-white/60 hover:text-white transition-colors"
-                      onClick={(e) => e.preventDefault()}
-                    >
-                      {child}
-                    </a>
-                  ))}
+                  {item.children.map((child) =>
+                    child.href.startsWith('/') ? (
+                      <Link
+                        key={child.label}
+                        to={child.href}
+                        className="block px-3 py-2 text-sm text-white/60 hover:text-white transition-colors"
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        {child.label}
+                      </Link>
+                    ) : (
+                      <a
+                        key={child.label}
+                        href={child.href}
+                        className="block px-3 py-2 text-sm text-white/60 hover:text-white transition-colors"
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        {child.label}
+                      </a>
+                    )
+                  )}
                 </div>
               )}
             </div>
