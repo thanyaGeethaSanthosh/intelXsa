@@ -40,15 +40,15 @@ export const content = {
     {
       label: 'About',
       children: [
-        { label: 'Why Choose Us',       href: '#' },
-        { label: 'Remote Work Model',   href: '#' },
+        { label: 'About intelXsa',    href: '/about' },
+        { label: 'Why Choose Us',     href: '/about#expertise' },
       ],
     },
     {
       label: 'Contact',
       children: [
-        { label: 'Request Support', href: '#contact' },
-        { label: 'Get a Quote',     href: '#contact' },
+        { label: 'Contact Us',    href: '/contact' },
+        { label: 'Get a Quote',   href: '/contact' },
       ],
     },
   ],
@@ -289,10 +289,62 @@ export const content = {
   footer: {
     description: 'Online BMS support and engineering services for Siemens DDC systems — serving contractors, system integrators, and consultants worldwide.',
     links: [
-      { label: 'Contact Us', href: '#contact' },
-      { label: 'Services',   href: '#' },
-      { label: 'About',      href: '#' },
+      { label: 'Contact Us', href: '/contact' },
+      { label: 'About',      href: '/about' },
+      { label: 'Services',   href: '/' },
     ],
     legal: '© 2024 intelXsa. All rights reserved.',
+  },
+
+  // ── About page ────────────────────────────────────────────────────
+  about: {
+    heroImage: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1600&q=80',
+    eyebrow:   'About intelXsa',
+    heading:   'Specialists in Siemens BMS Engineering Support',
+    description: 'A remote BMS engineering team providing high-quality, on-demand Siemens DDC support — delivering programming, graphics, and documentation for contractors, integrators, and consultants worldwide.',
+    mission: {
+      heading: 'Who We Are',
+      body:    'intelXsa was built around one goal: making expert Siemens BMS engineering support accessible to every contractor and integrator, regardless of size or location. With 12+ years of hands-on experience across commercial, industrial, and pharmaceutical projects, we understand what it takes to deliver accurate, review-ready BMS deliverables on tight timelines.',
+      sectionImage: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&q=80',
+    },
+    stats: [
+      { value: '12+',       label: 'Years of Experience' },
+      { value: '100+',      label: 'Projects Delivered' },
+      { value: '5',         label: 'Core Service Areas' },
+      { value: 'Worldwide', label: 'Remote Availability' },
+    ],
+    expertise: {
+      id:      'expertise',
+      heading: 'Our Technical Expertise',
+      items: [
+        'Siemens Desigo CC (PXC series) — programming, graphics, and configuration',
+        'Niagara N4 / 4.x Framework — graphics, driver config, and system integration',
+        'Pharma BMS — GMP validation, 21 CFR Part 11, DQ/IQ/OQ documentation',
+        'HVAC control sequences — AHU, FCU, CHW plant, VAV, FAHU, pressurization units',
+        'BMS & EMS integration — metering, SCADA, and third-party protocol support',
+        'Engineering documentation — IO lists, wiring diagrams, BOQ, and floor layouts',
+      ],
+    },
+  },
+
+  // ── Contact page ──────────────────────────────────────────────────
+  contact: {
+    eyebrow:     'Contact Us',
+    heading:     'Get In Touch',
+    description: 'Available for remote work worldwide. Share your project requirements and we\'ll respond within 24 hours.',
+    cards: [
+      { icon: 'Mail',  label: 'Email Us',      value: 'sales@intelxsa.com' },
+      { icon: 'Globe', label: 'Availability',  value: 'Remote — Worldwide' },
+      { icon: 'Clock', label: 'Response Time', value: 'Within 24 Hours' },
+    ],
+    toEmail: 'sales@intelxsa.com',
+    serviceOptions: [
+      'Desigo CC & Niagara Graphics',
+      'BMS Program & Logic Development',
+      'IO List & Wiring Diagrams',
+      'Controller Selection & BOQ',
+      'DQ / IQ / OQ Documentation',
+      'General Enquiry',
+    ],
   },
 }
