@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { content } from '../config/content'
 
 export default function CallToAction() {
@@ -12,9 +13,9 @@ export default function CallToAction() {
         <p className="eyebrow mb-4">Let's Talk</p>
         <h2 className="section-heading mb-5" style={{ color: 'var(--heading-on-dark)' }}>{heading}</h2>
         <p className="text-lg text-white/75 leading-relaxed mb-10">{description}</p>
-        <a href="mailto:info@magenergy.com" className="btn-accent text-sm">
+        <Link to="/contact" className="btn-accent text-sm">
           {cta}
-        </a>
+        </Link>
       </div>
     </section>
   )
