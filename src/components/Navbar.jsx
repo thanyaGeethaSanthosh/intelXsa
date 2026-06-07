@@ -34,7 +34,7 @@ function DropdownMenu({ items, isOpen }) {
       }`}
       style={{ borderColor: 'var(--accent)' }}
     >
-      {items.map((item) => (
+      {items.filter((item) => !item.hidden).map((item) => (
         <NavChild key={item.label} item={item} />
       ))}
     </div>
@@ -141,7 +141,7 @@ export default function Navbar() {
               </button>
               {mobileExpanded === item.label && (
                 <div className="pl-4 mt-1 space-y-1">
-                  {item.children.map((child) =>
+                  {item.children.filter((child) => !child.hidden).map((child) =>
                     child.href.startsWith('/') ? (
                       <Link
                         key={child.label}

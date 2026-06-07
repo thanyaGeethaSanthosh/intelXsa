@@ -30,6 +30,7 @@ export const content = {
     },
     {
       label: 'Expertise',
+      hidden: true,
       children: [
         { label: 'Siemens DDC Systems',   href: '#' },
         { label: 'Pharma BMS',            href: '#' },
@@ -48,7 +49,7 @@ export const content = {
       label: 'Contact',
       children: [
         { label: 'Contact Us',    href: '/contact' },
-        { label: 'Get a Quote',   href: '/contact' },
+        { label: 'Get a Quote',   href: '/contact', hidden: true },
       ],
     },
   ],
