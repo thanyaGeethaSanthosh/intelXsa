@@ -2,8 +2,160 @@
 //  CONTENT CONFIGURATION
 //  Replace any text, image URL, or link href here.
 //  Images: drop files in /public/images/ and update the paths.
+//
+//  ► TO ADD / REMOVE A SERVICE:
+//    Edit ONLY the `serviceItems` array below.
+//    The navbar, home highlight cards, services grid, service pages,
+//    and contact form dropdown all derive from it automatically.
 // =====================================================================
 
+// ── Single source for all services ───────────────────────────────────
+// Each entry powers: nav dropdown, highlight cards, services grid,
+// individual service page, OtherServices component, contact dropdown.
+const serviceItems = [
+  {
+    slug:        'graphics',
+    icon:        'LayoutDashboard',
+    title:       'Desigo CC & Niagara Graphics',
+    shortDesc:   'Clean, intuitive graphics for AHU, FCU, CHW, FAHU, VAV, pumps, and pressurization units.',
+    description: 'Customized, clean, and intuitive graphics for AHU, FCU, CHW systems, FAHU, VAV, pumps, and pressurization units — with dynamic animations, alarms, navigation, and user-friendly layouts.',
+    heroImage:   'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&q=80',
+    page: {
+      intro:        "We design and deliver professional HMI/SCADA graphics for Siemens Desigo CC and Niagara N4/4.x platforms. Every screen is built to be operator-friendly, visually clean, and aligned with your project's branding and technical standards.",
+      sectionImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80',
+      deliverables: [
+        'AHU, FAHU, and Air Handling Unit screens',
+        'FCU, VAV, and terminal unit graphics',
+        'CHW plant, pump group, and pressurization unit screens',
+        'Dynamic animations with live data point bindings',
+        'Alarm summary and alarm banner views',
+        'Site overview and floor navigation pages',
+        'Custom-branded, client-specific layouts',
+        'Trend and report display screens',
+      ],
+      forWhom: [
+        { title: 'BMS Contractors',    desc: 'Need Desigo CC or Niagara graphics delivered quickly on tight project timelines.' },
+        { title: 'System Integrators', desc: 'Require consistent, clean graphics across multiple concurrent projects.' },
+        { title: 'Siemens Resellers',  desc: 'Need expert sub-contract graphics support without hiring in-house.' },
+        { title: 'MEP Consultants',    desc: 'Want review-ready, standard-compliant screen mockups for client submissions.' },
+      ],
+    },
+  },
+  {
+    slug:        'bms-programming',
+    icon:        'Code2',
+    title:       'BMS Program & Logic Development',
+    shortDesc:   'Controller programming, control sequencing, optimized strategies, and troubleshooting support.',
+    description: 'Controller programming, control logic/sequencing and optimized strategies. Testing, simulation, and troubleshooting support included.',
+    heroImage:   'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1600&q=80',
+    page: {
+      intro:        'Complete DDC controller programming for Siemens systems — from new builds to complex modifications. We develop optimized control sequences, PID strategies, and commissioning-ready program files for any HVAC or BMS application.',
+      sectionImage: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1200&q=80',
+      deliverables: [
+        'Full DDC program files for Siemens PXC controllers',
+        'AHU, FCU, and chiller plant control sequences',
+        'PID loop tuning parameters and strategies',
+        'Scheduling, setpoint management, and operational modes',
+        'Alarm definitions, priority levels, and routing',
+        'Trend and reporting point configuration',
+        'Offline simulation and testing support',
+        'Commissioning troubleshooting assistance',
+      ],
+      forWhom: [
+        { title: 'System Integrators', desc: 'Need programming capacity for multiple sites or complex plant sequences.' },
+        { title: 'BMS Contractors',    desc: 'Require fast, tested program files to meet site commissioning schedules.' },
+        { title: 'Freelance Engineers', desc: 'Looking for reliable sub-contract support on Siemens DDC programming.' },
+        { title: 'MEP Firms',          desc: 'Need verified logic reviewed or modified for ongoing O&M contracts.' },
+      ],
+    },
+  },
+  {
+    slug:        'io-wiring',
+    icon:        'FileText',
+    title:       'IO List & Wiring Diagrams',
+    shortDesc:   'Detailed point lists, control panel layouts, terminal diagrams, and cable schedules.',
+    description: 'Detailed, project-specific point lists and control panel layouts. Terminal diagrams, cable schedules, and field device wiring — standard-compliant and easy to understand.',
+    heroImage:   'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=1600&q=80',
+    page: {
+      intro:        'Accurate, organized engineering documentation is the foundation of every successful BMS project. We prepare detailed IO lists and wiring diagrams that panel builders, site engineers, and commissioning teams can rely on without ambiguity.',
+      sectionImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80',
+      deliverables: [
+        'Project-specific IO point lists with tag names and addresses',
+        'Controller and field device IO allocation tables',
+        'Control panel general arrangement drawings',
+        'Terminal wiring diagrams and numbering schedules',
+        'Cable schedule and routing documentation',
+        'Field device wiring (sensors, actuators, meters)',
+        'Panel BOM (bill of materials) support',
+        'Standard-compliant, easy-to-follow document formats',
+      ],
+      forWhom: [
+        { title: 'Panel Builders',     desc: 'Need accurate, detailed wiring diagrams ready for fabrication.' },
+        { title: 'Project Engineers',  desc: 'Require clean IO lists for coordination with site and commissioning teams.' },
+        { title: 'MEP Firms',          desc: 'Need standard-compliant wiring documents as part of project deliverables.' },
+        { title: 'System Integrators', desc: 'Want consistent documentation across multiple control panels on a project.' },
+      ],
+    },
+  },
+  {
+    slug:        'controller-selection',
+    icon:        'Server',
+    title:       'Controller Selection & BOQ',
+    shortDesc:   'Siemens PXC selection, IO sizing, cost optimization, and complete Bill of Quantities.',
+    description: 'Siemens PXC controller selection with IO calculation, sizing, cost optimization, and complete Bill of Quantities.',
+    heroImage:   'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1600&q=80',
+    page: {
+      intro:        'Get the right Siemens controller for every zone and system — with precise IO calculations, cost-optimized selection, and a complete BMS Bill of Quantities ready for procurement or tender submission.',
+      sectionImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80',
+      deliverables: [
+        'Siemens PXC controller selection per zone/system',
+        'IO count and allocation calculation sheets',
+        'Controller sizing with expansion module planning',
+        'Complete BMS Bill of Quantities (BOQ)',
+        'Siemens part numbers and procurement references',
+        'Cost estimation for budgeting and tendering',
+        'Value-engineering options and alternatives',
+        'Network architecture and topology overview',
+      ],
+      forWhom: [
+        { title: 'Project Managers',  desc: 'Need accurate BOQs for budget approval and procurement sign-off.' },
+        { title: 'Tender Teams',      desc: 'Require complete, costed BOQs for competitive BMS tender submissions.' },
+        { title: 'Contractors',       desc: 'Need verified controller selection to finalize panel designs and orders.' },
+        { title: 'Consultants',       desc: 'Want independent controller selection review for specification compliance.' },
+      ],
+    },
+  },
+  {
+    slug:        'documentation',
+    icon:        'BookOpen',
+    title:       'DQ / IQ / OQ Documentation',
+    shortDesc:   'DQ, IQ & OQ documents per GMP guidelines, floor layouts, and hands-on BMS training.',
+    description: 'Complete preparation of Design Qualification, Installation Qualification & Operational Qualification documents as per GMP guidelines with 21 CFR Part 11 consideration.',
+    heroImage:   'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&q=80',
+    page: {
+      intro:        'Pharmaceutical BMS projects demand rigorous validation documentation. We prepare complete DQ, IQ, and OQ documents aligned with GMP guidelines and 21 CFR Part 11 requirements — so your BMS passes audits and inspections without rework.',
+      sectionImage: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=1200&q=80',
+      deliverables: [
+        'Design Qualification (DQ) document preparation',
+        'Installation Qualification (IQ) protocols and checklists',
+        'Operational Qualification (OQ) test scripts and records',
+        '21 CFR Part 11 compliance consideration notes',
+        'Alarm management and audit trail documentation',
+        'BMS & EMS integration validation support',
+        'Risk assessment and mitigation documentation',
+        'Deviation and change control record templates',
+      ],
+      forWhom: [
+        { title: 'Pharma Companies',   desc: 'Need GMP-compliant BMS validation documents for regulatory audits.' },
+        { title: 'Validation Teams',   desc: 'Require expert preparation of DQ/IQ/OQ protocols for BMS systems.' },
+        { title: 'Project Managers',   desc: 'Need complete validation deliverables as part of project handover.' },
+        { title: 'System Integrators', desc: 'Need pharma-specific documentation support for BMS projects in regulated environments.' },
+      ],
+    },
+  },
+]
+
+// ─────────────────────────────────────────────────────────────────────
 export const content = {
 
   // ── Company meta ──────────────────────────────────────────────────
@@ -15,18 +167,12 @@ export const content = {
   },
 
   // ── Navigation ────────────────────────────────────────────────────
-  // children are objects: { label, href }
-  // href starting with '/' uses React Router Link; '#' uses anchor
+  // Services children are auto-derived from serviceItems above.
+  // href starting with '/' uses React Router Link; '#' uses anchor.
   nav: [
     {
       label: 'Services',
-      children: [
-        { label: 'Desigo CC & Niagara Graphics',  href: '/services/graphics' },
-        { label: 'BMS Programming & Logic',        href: '/services/bms-programming' },
-        { label: 'IO List & Wiring Diagrams',      href: '/services/io-wiring' },
-        { label: 'Controller Selection & BOQ',     href: '/services/controller-selection' },
-        { label: 'DQ / IQ / OQ Documentation',    href: '/services/documentation' },
-      ],
+      children: serviceItems.map((s) => ({ label: s.title, href: `/services/${s.slug}` })),
     },
     {
       label: 'Expertise',
@@ -63,35 +209,10 @@ export const content = {
     backgroundImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1800&q=80',
   },
 
-  // ── Service Highlights (5 icon cards on home) ─────────────────────
+  // ── Service Highlights (icon cards just below hero) ───────────────
+  // Derived from serviceItems — no need to edit here.
   serviceHighlights: {
-    items: [
-      {
-        icon:        'LayoutDashboard',
-        title:       'Desigo CC & Niagara Graphics',
-        description: 'Clean, intuitive graphics for AHU, FCU, CHW, FAHU, VAV, pumps, and pressurization units.',
-      },
-      {
-        icon:        'Cpu',
-        title:       'BMS Programming & Logic',
-        description: 'Controller programming, control sequencing, optimized strategies, and troubleshooting support.',
-      },
-      {
-        icon:        'Network',
-        title:       'IO List & Wiring Diagrams',
-        description: 'Detailed point lists, control panel layouts, terminal diagrams, and cable schedules.',
-      },
-      {
-        icon:        'Server',
-        title:       'Controller Selection & BOQ',
-        description: 'Siemens PXC selection, IO sizing, cost optimization, and complete Bill of Quantities.',
-      },
-      {
-        icon:        'BookOpen',
-        title:       'Documentation & Training',
-        description: 'DQ, IQ & OQ documents per GMP guidelines, floor layouts, and hands-on BMS training.',
-      },
-    ],
+    items: serviceItems.map((s) => ({ icon: s.icon, title: s.title, description: s.shortDesc })),
   },
 
   // ── Why Choose Us ─────────────────────────────────────────────────
@@ -110,148 +231,12 @@ export const content = {
     backgroundImage: '/images/vaccine_image.jpeg',
   },
 
-  // ── Services Overview (home page cards) ───────────────────────────
-  // Each item also drives its own service detail page via `slug` and `page`.
+  // ── Services (overview grid + individual pages) ───────────────────
+  // Items are driven by serviceItems above — edit there, not here.
   services: {
     heading:    'Comprehensive BMS Engineering Services',
     subheading: 'From graphics and programming to documentation — we handle every deliverable.',
-    items: [
-      {
-        slug:        'graphics',
-        icon:        'LayoutDashboard',
-        title:       'Desigo CC & Niagara Graphics',
-        description: 'Customized, clean, and intuitive graphics for AHU, FCU, CHW systems, FAHU, VAV, pumps, and pressurization units — with dynamic animations, alarms, navigation, and user-friendly layouts.',
-        heroImage:   'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&q=80',
-        page: {
-          intro:        'We design and deliver professional HMI/SCADA graphics for Siemens Desigo CC and Niagara N4/4.x platforms. Every screen is built to be operator-friendly, visually clean, and aligned with your project\'s branding and technical standards.',
-          sectionImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80',
-          deliverables: [
-            'AHU, FAHU, and Air Handling Unit screens',
-            'FCU, VAV, and terminal unit graphics',
-            'CHW plant, pump group, and pressurization unit screens',
-            'Dynamic animations with live data point bindings',
-            'Alarm summary and alarm banner views',
-            'Site overview and floor navigation pages',
-            'Custom-branded, client-specific layouts',
-            'Trend and report display screens',
-          ],
-          forWhom: [
-            { title: 'BMS Contractors',    desc: 'Need Desigo CC or Niagara graphics delivered quickly on tight project timelines.' },
-            { title: 'System Integrators', desc: 'Require consistent, clean graphics across multiple concurrent projects.' },
-            { title: 'Siemens Resellers',  desc: 'Need expert sub-contract graphics support without hiring in-house.' },
-            { title: 'MEP Consultants',    desc: 'Want review-ready, standard-compliant screen mockups for client submissions.' },
-          ],
-        },
-      },
-      {
-        slug:        'bms-programming',
-        icon:        'Code2',
-        title:       'BMS Program & Logic Development',
-        description: 'Controller programming, control logic/sequencing and optimized strategies. Testing, simulation, and troubleshooting support included.',
-        heroImage:   'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1600&q=80',
-        page: {
-          intro:        'Complete DDC controller programming for Siemens systems — from new builds to complex modifications. We develop optimized control sequences, PID strategies, and commissioning-ready program files for any HVAC or BMS application.',
-          sectionImage: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1200&q=80',
-          deliverables: [
-            'Full DDC program files for Siemens PXC controllers',
-            'AHU, FCU, and chiller plant control sequences',
-            'PID loop tuning parameters and strategies',
-            'Scheduling, setpoint management, and operational modes',
-            'Alarm definitions, priority levels, and routing',
-            'Trend and reporting point configuration',
-            'Offline simulation and testing support',
-            'Commissioning troubleshooting assistance',
-          ],
-          forWhom: [
-            { title: 'System Integrators', desc: 'Need programming capacity for multiple sites or complex plant sequences.' },
-            { title: 'BMS Contractors',    desc: 'Require fast, tested program files to meet site commissioning schedules.' },
-            { title: 'Freelance Engineers', desc: 'Looking for reliable sub-contract support on Siemens DDC programming.' },
-            { title: 'MEP Firms',          desc: 'Need verified logic reviewed or modified for ongoing O&M contracts.' },
-          ],
-        },
-      },
-      {
-        slug:        'io-wiring',
-        icon:        'FileText',
-        title:       'IO List & Wiring Diagrams',
-        description: 'Detailed, project-specific point lists and control panel layouts. Terminal diagrams, cable schedules, and field device wiring — standard-compliant and easy to understand.',
-        heroImage:   'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=1600&q=80',
-        page: {
-          intro:        'Accurate, organized engineering documentation is the foundation of every successful BMS project. We prepare detailed IO lists and wiring diagrams that panel builders, site engineers, and commissioning teams can rely on without ambiguity.',
-          sectionImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80',
-          deliverables: [
-            'Project-specific IO point lists with tag names and addresses',
-            'Controller and field device IO allocation tables',
-            'Control panel general arrangement drawings',
-            'Terminal wiring diagrams and numbering schedules',
-            'Cable schedule and routing documentation',
-            'Field device wiring (sensors, actuators, meters)',
-            'Panel BOM (bill of materials) support',
-            'Standard-compliant, easy-to-follow document formats',
-          ],
-          forWhom: [
-            { title: 'Panel Builders',     desc: 'Need accurate, detailed wiring diagrams ready for fabrication.' },
-            { title: 'Project Engineers',  desc: 'Require clean IO lists for coordination with site and commissioning teams.' },
-            { title: 'MEP Firms',          desc: 'Need standard-compliant wiring documents as part of project deliverables.' },
-            { title: 'System Integrators', desc: 'Want consistent documentation across multiple control panels on a project.' },
-          ],
-        },
-      },
-      {
-        slug:        'controller-selection',
-        icon:        'Server',
-        title:       'Controller Selection & BOQ',
-        description: 'Siemens PXC controller selection with IO calculation, sizing, cost optimization, and complete Bill of Quantities.',
-        heroImage:   'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1600&q=80',
-        page: {
-          intro:        'Get the right Siemens controller for every zone and system — with precise IO calculations, cost-optimized selection, and a complete BMS Bill of Quantities ready for procurement or tender submission.',
-          sectionImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80',
-          deliverables: [
-            'Siemens PXC controller selection per zone/system',
-            'IO count and allocation calculation sheets',
-            'Controller sizing with expansion module planning',
-            'Complete BMS Bill of Quantities (BOQ)',
-            'Siemens part numbers and procurement references',
-            'Cost estimation for budgeting and tendering',
-            'Value-engineering options and alternatives',
-            'Network architecture and topology overview',
-          ],
-          forWhom: [
-            { title: 'Project Managers',  desc: 'Need accurate BOQs for budget approval and procurement sign-off.' },
-            { title: 'Tender Teams',      desc: 'Require complete, costed BOQs for competitive BMS tender submissions.' },
-            { title: 'Contractors',       desc: 'Need verified controller selection to finalize panel designs and orders.' },
-            { title: 'Consultants',       desc: 'Want independent controller selection review for specification compliance.' },
-          ],
-        },
-      },
-      {
-        slug:        'documentation',
-        icon:        'BookOpen',
-        title:       'DQ / IQ / OQ Documentation',
-        description: 'Complete preparation of Design Qualification, Installation Qualification & Operational Qualification documents as per GMP guidelines with 21 CFR Part 11 consideration.',
-        heroImage:   'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&q=80',
-        page: {
-          intro:        'Pharmaceutical BMS projects demand rigorous validation documentation. We prepare complete DQ, IQ, and OQ documents aligned with GMP guidelines and 21 CFR Part 11 requirements — so your BMS passes audits and inspections without rework.',
-          sectionImage: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=1200&q=80',
-          deliverables: [
-            'Design Qualification (DQ) document preparation',
-            'Installation Qualification (IQ) protocols and checklists',
-            'Operational Qualification (OQ) test scripts and records',
-            '21 CFR Part 11 compliance consideration notes',
-            'Alarm management and audit trail documentation',
-            'BMS & EMS integration validation support',
-            'Risk assessment and mitigation documentation',
-            'Deviation and change control record templates',
-          ],
-          forWhom: [
-            { title: 'Pharma Companies',   desc: 'Need GMP-compliant BMS validation documents for regulatory audits.' },
-            { title: 'Validation Teams',   desc: 'Require expert preparation of DQ/IQ/OQ protocols for BMS systems.' },
-            { title: 'Project Managers',   desc: 'Need complete validation deliverables as part of project handover.' },
-            { title: 'System Integrators', desc: 'Need pharma-specific documentation support for BMS projects in regulated environments.' },
-          ],
-        },
-      },
-    ],
+    items:      serviceItems,
   },
 
   // ── Industries ────────────────────────────────────────────────────
@@ -332,20 +317,14 @@ export const content = {
   contact: {
     eyebrow:     'Contact Us',
     heading:     'Get In Touch',
-    description: 'Available for remote work worldwide. Share your project requirements and we\'ll respond within 24 hours.',
+    description: "Available for remote work worldwide. Share your project requirements and we'll respond within 24 hours.",
     cards: [
       { icon: 'Mail',  label: 'Email Us',      value: 'sales@intelxsa.com' },
       { icon: 'Globe', label: 'Availability',  value: 'Remote — Worldwide' },
       { icon: 'Clock', label: 'Response Time', value: 'Within 24 Hours' },
     ],
     toEmail: 'sales@intelxsa.com',
-    serviceOptions: [
-      'Desigo CC & Niagara Graphics',
-      'BMS Program & Logic Development',
-      'IO List & Wiring Diagrams',
-      'Controller Selection & BOQ',
-      'DQ / IQ / OQ Documentation',
-      'General Enquiry',
-    ],
+    // Service options derived from serviceItems — no need to edit here.
+    serviceOptions: [...serviceItems.map((s) => s.title), 'General Enquiry'],
   },
 }
