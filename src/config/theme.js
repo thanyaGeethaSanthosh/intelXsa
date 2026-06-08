@@ -7,8 +7,10 @@ export const theme = {
   colors: {
     // ── Brand ──────────────────────────────────────────────────────
     primary:     '#0a0a0a',   // Main dark color (navbar, dark sections)
-    accent:      '#c9a227',   // Gold accent — buttons, highlights
-    accentDark:  '#a8841a',   // Darker gold for button hover states
+    accent:      '#11C88C',   // Gold accent — buttons, highlights
+    // accent:      '#c9a227',   // Gold accent — buttons, highlights
+    // accentDark:  '#a8841a',   // Darker gold for button hover states
+    accentDark:  '#0E5B6A',   // Darker gold for button hover states
 
     // ── Section backgrounds ────────────────────────────────────────
     sectionAlt:  '#f5f5f5',   // Light gray — alternating sections
