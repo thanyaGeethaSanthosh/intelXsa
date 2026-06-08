@@ -107,7 +107,7 @@ export const content = {
       'Perfect for subcontractors, freelancers & MEP firms needing quick BMS engineering help',
     ],
     cta:             'Get Support Now',
-    backgroundImage: 'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1400&q=80',
+    backgroundImage: '/images/vaccine_image.jpeg',
   },
 
   // ── Services Overview (home page cards) ───────────────────────────
@@ -292,7 +292,7 @@ export const content = {
     links: [
       { label: 'Contact Us', href: '/contact' },
       { label: 'About',      href: '/about' },
-      { label: 'Services',   href: '/' },
+      { label: 'Services',   href: '/#services' },
     ],
     legal: '© 2024 intelXsa. All rights reserved.',
   },
