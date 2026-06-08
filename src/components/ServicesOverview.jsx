@@ -6,7 +6,7 @@ import { serviceIconMap } from '../config/icons'
 export default function ServicesOverview() {
   const { heading, subheading, items } = content.services
   return (
-    <section className="section-pad" style={{ backgroundColor: 'var(--section-alt)' }}>
+    <section id="services" className="section-pad" style={{ backgroundColor: 'var(--section-alt)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <p className="eyebrow mb-3">What We Offer</p>
