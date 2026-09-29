@@ -1,26 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import ScrollToTop from './components/ScrollToTop'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import HomePage from './pages/HomePage'
-import ServicePage from './pages/ServicePage'
-import AboutPage from './pages/AboutPage'
-import ContactPage from './pages/ContactPage'
+import ComingSoon from './pages/ComingSoon'
 
 export default function App() {
-  return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <Navbar />
-      <main>
-        <Routes>
-          <Route path="/"                  element={<HomePage />} />
-          <Route path="/services/:slug"    element={<ServicePage />} />
-          <Route path="/about"             element={<AboutPage />} />
-          <Route path="/contact"           element={<ContactPage />} />
-        </Routes>
-      </main>
-      <Footer />
-    </BrowserRouter>
-  )
+  return <ComingSoon />
 }
