@@ -19,10 +19,16 @@ const serviceItems = [
     title:       'Desigo CC & Niagara Graphics',
     shortDesc:   'Clean, intuitive graphics for AHU, FCU, CHW, FAHU, VAV, pumps, and pressurization units.',
     description: 'Customized, clean, and intuitive graphics for AHU, FCU, CHW systems, FAHU, VAV, pumps, and pressurization units — with dynamic animations, alarms, navigation, and user-friendly layouts.',
-    heroImage:   'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&q=80',
+    heroImage:   '/images/ahu-graphics.png',
     page: {
-      intro:        "We design and deliver professional HMI/SCADA graphics for Siemens Desigo CC and Niagara N4/4.x platforms. Every screen is built to be operator-friendly, visually clean, and aligned with your project's branding and technical standards.",
-      sectionImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80',
+      intro:        "We design intuitive, operator-focused graphics for Siemens Desigo CC and Niagara systems, turning complex building data into clear, efficient control interfaces.",
+      overviewPoints: [
+        { title: 'UI/UX Design', description: 'We create intuitive, user-centric interfaces tailored for Desigo CC and Niagara, helping operators navigate complex systems with ease.' },
+        { title: 'Graphics Development', description: 'We transform BMS data and control logic into clear, structured, and visually effective graphics that improve operational clarity.' },
+        { title: 'Data Integration', description: 'We connect building automation systems and BMS platforms for real-time communication, monitoring, and control.' },
+        { title: 'Custom Solutions', description: 'We tailor every screen to project specifications, operational goals, and industry standards.' },
+      ],
+      sectionImage: '/images/ahu-dashboard.png',
       deliverables: [
         'AHU, FAHU, and Air Handling Unit screens',
         'FCU, VAV, and terminal unit graphics',
@@ -50,7 +56,8 @@ const serviceItems = [
     heroImage:   'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1600&q=80',
     page: {
       intro:        'Complete DDC controller programming for Siemens systems — from new builds to complex modifications. We develop optimized control sequences, PID strategies, and commissioning-ready program files for any HVAC or BMS application.',
-      sectionImage: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1200&q=80',
+      sectionImage: '/images/bms-programming-overview.png',
+      deliverablesImage: '/images/bms-programming-deliverables.png',
       deliverables: [
         'Full DDC program files for Siemens PXC controllers',
         'AHU, FCU, and chiller plant control sequences',
@@ -206,29 +213,56 @@ export const content = {
     subheadline:     'On-demand. Remote. Worldwide.',
     description:     'End-to-end support for Siemens DDC controllers — delivering accurate, professional programming, graphics, and documentation for contractors, system integrators, and consultants.',
     cta:             'Get Support Now',
-    backgroundImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1800&q=80',
+    backgroundImage: '/images/hero-building-management.png',
   },
 
   // ── Service Highlights (icon cards just below hero) ───────────────
   // Derived from serviceItems — no need to edit here.
   serviceHighlights: {
+    heading: 'We Provide Back-end Support For',
+    description: 'When your team is focused on project execution and on-site activities, we take care of the backend engineering work and provide dedicated remote support. This helps streamline project workflows, reduce delays, and make better use of valuable project time.',
+    backgroundImage: '/images/backend-support.jpg',
     items: serviceItems.map((s) => ({ icon: s.icon, title: s.title, description: s.shortDesc })),
+  },
+
+  // ── Additional services highlighted on the home page ─────────────
+  additionalServices: {
+    heading: 'Other Services We Provide',
+    backgroundImage: '/images/service-partnership.jpg',
+    items: [
+      {
+        title: 'BMS Solutions',
+        description: 'We provide complete BMS solutions, covering every stage of the project lifecycle. From design and engineering to on-site execution, integration, and commissioning, we deliver reliable work tailored to project requirements.',
+      },
+      {
+        title: 'Reviving Challenging BMS Projects',
+        description: 'When others walk away, we step in. We take over incomplete, delayed, or underperforming BMS projects and transform them into operational systems through programming, graphics development, troubleshooting, and commissioning support.',
+      },
+      {
+        title: 'Annual Maintenance Contract (AMC)',
+        description: 'Our comprehensive maintenance contracts help ensure reliable and efficient operation of BMS and associated infrastructure, minimizing downtime, optimizing performance, and extending equipment life.',
+      },
+      {
+        title: 'Advance Your BMS Career',
+        description: 'Practical online training for Siemens ABT Site and Desigo CC, covering programming, graphics development, system integration, commissioning, and troubleshooting through real-world project examples.',
+      },
+    ],
   },
 
   // ── Why Choose Us ─────────────────────────────────────────────────
   whyChooseUs: {
     eyebrow:     'Why Choose intelXsa',
-    heading:     '12+ Years of Siemens\nBMS Expertise.',
+    heading:     '8 Years of Siemens\nBMS Expertise.',
     description: 'We provide fast, accurate, and professional BMS engineering support for contractors, system integrators, and consultants — available remotely for projects worldwide.',
     points: [
-      'Strong expertise in Siemens systems with 12+ years of experience',
+      'Strong expertise in Siemens systems with 8 years of experience',
       'Pharma BMS: BMS & EMS integration, 21 CFR Part 11, alarm management & validation',
       'Fast delivery with clean, professional documentation',
       'Remote work — available for projects worldwide',
       'Perfect for subcontractors, freelancers & MEP firms needing quick BMS engineering help',
     ],
     cta:             'Get Support Now',
-    backgroundImage: '/images/vaccine_image.jpeg',
+    backgroundImage: '/images/why-choose-intelxsa.png',
   },
 
   // ── Services (overview grid + individual pages) ───────────────────
@@ -290,11 +324,11 @@ export const content = {
     description: 'A remote BMS engineering team providing high-quality, on-demand Siemens DDC support — delivering programming, graphics, and documentation for contractors, integrators, and consultants worldwide.',
     mission: {
       heading: 'Who We Are',
-      body:    'intelXsa was built around one goal: making expert Siemens BMS engineering support accessible to every contractor and integrator, regardless of size or location. With 12+ years of hands-on experience across commercial, industrial, and pharmaceutical projects, we understand what it takes to deliver accurate, review-ready BMS deliverables on tight timelines.',
+      body:    'intelXsa was built around one goal: making expert Siemens BMS engineering support accessible to every contractor and integrator, regardless of size or location. With 8 years of hands-on experience across commercial, industrial, and pharmaceutical projects, we understand what it takes to deliver accurate, review-ready BMS deliverables on tight timelines.',
       sectionImage: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&q=80',
     },
     stats: [
-      { value: '12+',       label: 'Years of Experience' },
+      { value: '8',         label: 'Years of Experience' },
       { value: '100+',      label: 'Projects Delivered' },
       { value: '5',         label: 'Core Service Areas' },
       { value: 'Worldwide', label: 'Remote Availability' },

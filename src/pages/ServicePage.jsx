@@ -71,9 +71,24 @@ export default function ServicePage() {
               <h2 className="section-heading mb-5" style={{ color: 'var(--text-base)' }}>
                 What We Deliver
               </h2>
-              <p className="text-base leading-relaxed mb-8" style={{ color: 'var(--text-muted)' }}>
-                {page.intro}
-              </p>
+              {page.overviewPoints ? (
+                <div className="space-y-4 mb-8">
+                  {page.overviewPoints.map((point) => (
+                    <div key={point.title}>
+                      <h3 className="text-sm font-bold mb-1" style={{ color: 'var(--text-base)' }}>
+                        {point.title}
+                      </h3>
+                      <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                        {point.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-base leading-relaxed mb-8" style={{ color: 'var(--text-muted)' }}>
+                  {page.intro}
+                </p>
+              )}
               <a href="#contact" className="btn-accent text-xs">Start a Project</a>
             </div>
             <div className="relative">
@@ -105,20 +120,33 @@ export default function ServicePage() {
               Every engagement includes clean, organized files delivered in your preferred format.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
-            {page.deliverables.map((item) => (
-              <div key={item} className="flex items-start gap-3 p-4" style={{ backgroundColor: 'rgba(255,255,255,0.04)', borderLeft: `3px solid var(--accent)` }}>
-                <span
-                  className="flex-shrink-0 flex items-center justify-center w-5 h-5 mt-0.5"
-                  style={{ backgroundColor: 'var(--accent)' }}
-                >
-                  <Check size={11} className="text-white" strokeWidth={3} />
-                </span>
-                <span className="text-sm leading-relaxed" style={{ color: 'var(--text-faint)' }}>
-                  {item}
-                </span>
-              </div>
-            ))}
+          <div className={page.deliverablesImage
+            ? 'grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)] gap-8 items-center'
+            : 'max-w-4xl mx-auto'}
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {page.deliverables.map((item) => (
+                <div key={item} className="flex items-start gap-3 p-4" style={{ backgroundColor: 'rgba(255,255,255,0.04)', borderLeft: `3px solid var(--accent)` }}>
+                  <span
+                    className="flex-shrink-0 flex items-center justify-center w-5 h-5 mt-0.5"
+                    style={{ backgroundColor: 'var(--accent)' }}
+                  >
+                    <Check size={11} className="text-white" strokeWidth={3} />
+                  </span>
+                  <span className="text-sm leading-relaxed" style={{ color: 'var(--text-faint)' }}>
+                    {item}
+                  </span>
+                </div>
+              ))}
+            </div>
+            {page.deliverablesImage && (
+              <img
+                src={page.deliverablesImage}
+                alt={`${service.title} deliverables example`}
+                className="w-full h-full max-h-[420px] object-cover"
+                loading="lazy"
+              />
+            )}
           </div>
         </div>
       </section>
