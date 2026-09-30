@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
-import { Zap, Phone, MapPin, Mail } from 'lucide-react'
+import { Phone, MapPin, Mail } from 'lucide-react'
 import { content } from '../config/content'
+import BrandLogo from './BrandLogo'
 
 export default function Footer() {
   const { description, links, legal } = content.footer
-  const { name, phone, email, address } = content.company
+  const { phone, email, address } = content.company
 
   return (
     <footer style={{ backgroundColor: 'var(--primary)' }}>
@@ -13,11 +14,8 @@ export default function Footer() {
 
           {/* Brand column */}
           <div>
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="flex items-center justify-center w-8 h-8" style={{ backgroundColor: 'var(--accent)' }}>
-                <Zap size={18} className="text-white" fill="white" />
-              </div>
-              <span className="text-white font-bold text-lg tracking-wide">{name}</span>
+            <Link to="/" className="inline-flex mb-4">
+              <BrandLogo width={180} />
             </Link>
             <p className="text-sm leading-relaxed" style={{ color: 'var(--text-faint)' }}>
               {description}

@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Zap, Menu, X, ChevronDown } from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
 import { content } from '../config/content'
+import BrandLogo from './BrandLogo'
 
 function NavChild({ item }) {
   if (item.href.startsWith('/')) {
@@ -69,15 +70,7 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 flex-shrink-0">
-            <div
-              className="flex items-center justify-center w-8 h-8"
-              style={{ backgroundColor: 'var(--accent)' }}
-            >
-              <Zap size={18} className="text-white" fill="white" />
-            </div>
-            <span className="text-white font-bold text-lg tracking-wide">
-              {content.company.name}
-            </span>
+            <BrandLogo width={150} />
           </Link>
 
           {/* Desktop nav */}

@@ -1,7 +1,7 @@
 import {
   LayoutDashboard, Code2, FileText, Server, BookOpen,
   FlaskConical, Building2, Network, HardHat, Briefcase, Database, Activity,
-  Cpu, Check, Zap, Phone, MapPin, Mail, Menu, X, ChevronDown, ShoppingCart,
+  Cpu, Check, Phone, MapPin, Mail, Menu, X, ChevronDown, ShoppingCart,
 } from 'lucide-react'
 
 // Shared icon map for service cards — used in ServiceHighlights,
@@ -22,5 +22,5 @@ export const industryIconMap = {
 
 // UI icons re-exported for convenience
 export {
-  Check, Zap, Phone, MapPin, Mail, Menu, X, ChevronDown, ShoppingCart,
+  Check, Phone, MapPin, Mail, Menu, X, ChevronDown, ShoppingCart,
 }
