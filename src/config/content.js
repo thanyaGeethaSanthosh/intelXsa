@@ -57,7 +57,7 @@ const serviceItems = [
     page: {
       intro:        'Complete DDC controller programming for Siemens systems — from new builds to complex modifications. We develop optimized control sequences, PID strategies, and commissioning-ready program files for any HVAC or BMS application.',
       sectionImage: '/images/bms-programming-overview.png',
-      deliverablesImage: '/images/bms-programming-deliverables.png',
+      forWhomImage: '/images/bms-programming-deliverables.png',
       deliverables: [
         'Full DDC program files for Siemens PXC controllers',
         'AHU, FCU, and chiller plant control sequences',

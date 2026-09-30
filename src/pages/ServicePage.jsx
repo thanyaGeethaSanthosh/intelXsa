@@ -160,24 +160,37 @@ export default function ServicePage() {
               Perfect For
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {page.forWhom.map((item) => (
-              <div
-                key={item.title}
-                className="bg-white p-6 card-lift"
-                style={{ borderTop: `3px solid var(--accent)` }}
-              >
-                <h3
-                  className="text-sm font-700 mb-2"
-                  style={{ fontWeight: 700, color: 'var(--text-base)' }}
+          <div className={page.forWhomImage
+            ? 'grid grid-cols-1 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] gap-6 items-stretch'
+            : 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'}
+          >
+            <div className={page.forWhomImage ? 'grid grid-cols-1 sm:grid-cols-2 gap-6' : 'contents'}>
+              {page.forWhom.map((item) => (
+                <div
+                  key={item.title}
+                  className="bg-white p-6 card-lift"
+                  style={{ borderTop: `3px solid var(--accent)` }}
                 >
-                  {item.title}
-                </h3>
-                <p className="text-xs leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-                  {item.desc}
-                </p>
-              </div>
-            ))}
+                  <h3
+                    className="text-sm font-700 mb-2"
+                    style={{ fontWeight: 700, color: 'var(--text-base)' }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p className="text-xs leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+            {page.forWhomImage && (
+              <img
+                src={page.forWhomImage}
+                alt={`${service.title} programming interface`}
+                className="w-full h-full min-h-[220px] max-h-[400px] object-cover"
+                loading="lazy"
+              />
+            )}
           </div>
         </div>
       </section>
