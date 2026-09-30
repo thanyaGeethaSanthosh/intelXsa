@@ -17,16 +17,16 @@ const serviceItems = [
     slug:        'graphics',
     icon:        'LayoutDashboard',
     title:       'Desigo CC & Niagara Graphics',
-    shortDesc:   'Clean, intuitive graphics for AHU, FCU, CHW, FAHU, VAV, pumps, and pressurization units.',
-    description: 'Customized, clean, and intuitive graphics for AHU, FCU, CHW systems, FAHU, VAV, pumps, and pressurization units — with dynamic animations, alarms, navigation, and user-friendly layouts.',
+    shortDesc:   'High-quality, user-friendly graphics for Desigo CC and Niagara HVAC and plant systems.',
+    description: 'High-quality, user-friendly graphics for Desigo CC and Niagara systems, covering HVAC and plant systems such as AHU, FCU, FAHU, VAV, chillers, and pumps. Designed with dynamic visuals, alarms, and smooth navigation for better control and monitoring.',
     heroImage:   '/images/ahu-graphics.png',
     page: {
-      intro:        "We design intuitive, operator-focused graphics for Siemens Desigo CC and Niagara systems, turning complex building data into clear, efficient control interfaces.",
+      intro:        'We develop intuitive and user-centric interfaces tailored for Desigo CC and Niagara. Our designs prioritize usability and efficiency, enabling operators, facility managers, and end-users to navigate complex systems with ease and confidence.',
       overviewPoints: [
-        { title: 'UI/UX Design', description: 'We create intuitive, user-centric interfaces tailored for Desigo CC and Niagara, helping operators navigate complex systems with ease.' },
-        { title: 'Graphics Development', description: 'We transform BMS data and control logic into clear, structured, and visually effective graphics that improve operational clarity.' },
-        { title: 'Data Integration', description: 'We connect building automation systems and BMS platforms for real-time communication, monitoring, and control.' },
-        { title: 'Custom Solutions', description: 'We tailor every screen to project specifications, operational goals, and industry standards.' },
+        { title: 'UI/UX Design', description: 'We develop intuitive and user-centric interfaces tailored for Desigo CC and Niagara. Our designs prioritize usability and efficiency, enabling operators, facility managers, and end-users to navigate complex systems with ease and confidence.' },
+        { title: 'Graphics Development', description: 'Our graphics services focus on converting complex BMS data and control logic into clear, structured, and visually effective graphical interfaces. We ensure that system information is presented in a meaningful way to enhance operational clarity and decision-making.' },
+        { title: 'Data Integration', description: 'We deliver seamless integration between building automation systems and BMS platforms, enabling real-time data communication, monitoring, and control. This ensures improved system performance, operational visibility, and informed decision-making.' },
+        { title: 'Custom Solutions', description: 'We understand that every project has unique requirements. Our team works closely with contractors, consultants, and project stakeholders to develop tailored solutions that align with project specifications, operational goals, and industry standards.' },
       ],
       sectionImage: '/images/ahu-dashboard.png',
       deliverables: [
@@ -51,8 +51,8 @@ const serviceItems = [
     slug:        'bms-programming',
     icon:        'Code2',
     title:       'BMS Program & Logic Development',
-    shortDesc:   'Controller programming, control sequencing, optimized strategies, and troubleshooting support.',
-    description: 'Controller programming, control logic/sequencing and optimized strategies. Testing, simulation, and troubleshooting support included.',
+    shortDesc:   'Expert development of controller programs with optimized control logic and sequencing strategies.',
+    description: 'Expert development of controller programs with optimized control logic and sequencing strategies for HVAC and building systems.',
     heroImage:   'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1600&q=80',
     page: {
       intro:        'Complete DDC controller programming for Siemens systems — from new builds to complex modifications. We develop optimized control sequences, PID strategies, and commissioning-ready program files for any HVAC or BMS application.',
@@ -79,9 +79,9 @@ const serviceItems = [
   {
     slug:        'io-wiring',
     icon:        'FileText',
-    title:       'IO List & Wiring Diagrams',
-    shortDesc:   'Detailed point lists, control panel layouts, terminal diagrams, and cable schedules.',
-    description: 'Detailed, project-specific point lists and control panel layouts. Terminal diagrams, cable schedules, and field device wiring — standard-compliant and easy to understand.',
+    title:       'Engineering Documentation Service',
+    shortDesc:   'Comprehensive I/O lists, wiring diagrams, point schedules, and control documentation.',
+    description: 'Comprehensive development of I/O lists, wiring diagrams, point schedules, and control documentation to ensure smooth project execution and system integration.',
     heroImage:   'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=1600&q=80',
     page: {
       intro:        'Accurate, organized engineering documentation is the foundation of every successful BMS project. We prepare detailed IO lists and wiring diagrams that panel builders, site engineers, and commissioning teams can rely on without ambiguity.',
@@ -107,9 +107,9 @@ const serviceItems = [
   {
     slug:        'controller-selection',
     icon:        'Server',
-    title:       'Controller Selection & BOQ',
-    shortDesc:   'Siemens PXC selection, IO sizing, cost optimization, and complete Bill of Quantities.',
-    description: 'Siemens PXC controller selection with IO calculation, sizing, cost optimization, and complete Bill of Quantities.',
+    title:       'BMS Design Engineering & BOQ Development',
+    shortDesc:   'Controller selection, I/O planning, and detailed BOQ preparation for efficient system design.',
+    description: 'From controller selection and I/O planning to detailed BOQ preparation, we deliver comprehensive engineering support to ensure efficient system design, accurate material estimation, and successful project execution.',
     heroImage:   'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1600&q=80',
     page: {
       intro:        'Get the right Siemens controller for every zone and system — with precise IO calculations, cost-optimized selection, and a complete BMS Bill of Quantities ready for procurement or tender submission.',
@@ -210,8 +210,8 @@ export const content = {
   // ── Hero ──────────────────────────────────────────────────────────
   hero: {
     headline:        'Expert BMS Engineering Support',
-    subheadline:     'On-demand. Remote. Worldwide.',
-    description:     'End-to-end support for Siemens DDC controllers — delivering accurate, professional programming, graphics, and documentation for contractors, system integrators, and consultants.',
+    subheadline:     'On-demand. On-site. Remote. Worldwide.',
+    description:     'Providing complete Building Management System (BMS) and Environmental Monitoring System (EMS) engineering services for Siemens platforms, including DDC programming, graphical user interface development, testing and commissioning support, and detailed project documentation.',
     cta:             'Get Support Now',
     backgroundImage: '/images/hero-building-management.png',
   },
@@ -232,15 +232,15 @@ export const content = {
     items: [
       {
         title: 'BMS Solutions',
-        description: 'We provide complete BMS solutions, covering every stage of the project lifecycle. From design and engineering to on-site execution, integration, and commissioning, we deliver reliable work tailored to project requirements.',
+        description: 'We provide complete BMS solutions, covering every stage of the project lifecycle. From design and engineering to on-site execution, integration, and commissioning, we ensure reliable and efficient delivery tailored to project requirements.',
       },
       {
         title: 'Reviving Challenging BMS Projects',
-        description: 'When others walk away, we step in. We take over incomplete, delayed, or underperforming BMS projects and transform them into operational systems through programming, graphics development, troubleshooting, and commissioning support.',
+        description: 'When others walk away, we step in. Our team specializes in taking over incomplete, delayed, or underperforming BMS projects and transforming them into fully operational systems through expert programming, graphics development, troubleshooting, and commissioning support.',
       },
       {
         title: 'Annual Maintenance Contract (AMC)',
-        description: 'Our comprehensive maintenance contracts help ensure reliable and efficient operation of BMS and associated infrastructure, minimizing downtime, optimizing performance, and extending equipment life.',
+        description: 'We provide comprehensive Annual Maintenance Contracts to ensure the reliable and efficient operation of your Building Management Systems (BMS) and associated infrastructure. Our AMC services are designed to minimize downtime, optimize system performance, and extend equipment life.',
       },
       {
         title: 'Advance Your BMS Career',
@@ -252,14 +252,13 @@ export const content = {
   // ── Why Choose Us ─────────────────────────────────────────────────
   whyChooseUs: {
     eyebrow:     'Why Choose intelXsa',
-    heading:     '8 Years of Siemens\nBMS Expertise.',
-    description: 'We provide fast, accurate, and professional BMS engineering support for contractors, system integrators, and consultants — available remotely for projects worldwide.',
+    heading:     '8 Years of BMS Expertise',
+    description: 'We provide fast, accurate, and professional BMS engineering support for contractors, system integrators, and consultants — Also available remotely for projects worldwide.',
     points: [
-      'Strong expertise in Siemens systems with 8 years of experience',
-      'Pharma BMS: BMS & EMS integration, 21 CFR Part 11, alarm management & validation',
-      'Fast delivery with clean, professional documentation',
-      'Remote work — available for projects worldwide',
-      'Perfect for subcontractors, freelancers & MEP firms needing quick BMS engineering help',
+      'End-to-End Project Support: From design and development to testing and commissioning support, we provide complete assistance for BMS projects.',
+      'High-Quality Graphics Development: We create clear, structured, and operator-friendly graphics that simplify complex HVAC and process systems, improving usability and operational efficiency.',
+      'Pharma Industry Expertise: We bring strong hands-on experience in pharmaceutical BMS environments, ensuring compliance-driven design, validation-ready documentation, and reliable system performance for regulated facilities.',
+      'On-site & Remote Support: We offer on-site and remote support to ensure fast and smooth execution of your projects.',
     ],
     cta:             'Get Support Now',
     backgroundImage: '/images/why-choose-intelxsa.png',

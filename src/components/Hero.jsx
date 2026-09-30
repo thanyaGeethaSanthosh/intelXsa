@@ -8,7 +8,7 @@ export default function Hero() {
       style={{ backgroundImage: `url('${hero.backgroundImage}')` }}
     >
       <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-        <p className="eyebrow mb-4">Energy Solutions</p>
+        <p className="eyebrow mb-4">BMS &amp; EMS Solution</p>
         <h1 className="section-heading text-white mb-3">
           {hero.headline}
         </h1>
