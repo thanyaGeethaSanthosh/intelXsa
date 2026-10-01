@@ -1,25 +1,11 @@
 import { useEffect } from 'react'
-import { useParams, Navigate, Link } from 'react-router-dom'
-import { Check, Home, ChevronRight } from 'lucide-react'
+import { useParams, Navigate } from 'react-router-dom'
+import { Check, ArrowRight } from 'lucide-react'
 import { content } from '../config/content'
 import { serviceIconMap } from '../config/icons'
+import PageHero from '../components/PageHero'
 import OtherServices from '../components/OtherServices'
 import CallToAction from '../components/CallToAction'
-
-function Breadcrumb({ title }) {
-  return (
-    <nav className="flex items-center gap-2 text-xs mb-6" style={{ color: 'var(--text-faint)' }}>
-      <Link to="/" className="flex items-center gap-1 hover:text-white transition-colors">
-        <Home size={12} />
-        <span>Home</span>
-      </Link>
-      <ChevronRight size={12} style={{ color: 'var(--text-muted)' }} />
-      <span style={{ color: 'var(--text-faint)' }}>Services</span>
-      <ChevronRight size={12} style={{ color: 'var(--text-muted)' }} />
-      <span className="text-white font-medium">{title}</span>
-    </nav>
-  )
-}
 
 export default function ServicePage() {
   const { slug } = useParams()
@@ -38,165 +24,146 @@ export default function ServicePage() {
   return (
     <>
       {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section
-        className="relative min-h-[60vh] flex items-end bg-cover bg-center img-overlay pt-16"
-        style={{ backgroundImage: `url('${service.heroImage}')` }}
+      <PageHero
+        crumbs={[{ label: 'Services' }, { label: service.title }]}
+        eyebrow={Icon && (
+          <span
+            className="inline-flex items-center justify-center w-14 h-14 border"
+            style={{ borderColor: 'rgba(255,255,255,0.3)' }}
+          >
+            <Icon size={24} strokeWidth={1.4} style={{ color: 'var(--accent)' }} />
+          </span>
+        )}
+        title={service.title}
+        description={service.description}
+        image={service.heroImage}
       >
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-          <Breadcrumb title={service.title} />
-          <div className="flex items-center gap-4 mb-4">
-            <div
-              className="flex items-center justify-center w-14 h-14 flex-shrink-0"
-              style={{ backgroundColor: 'var(--accent)' }}
-            >
-              {Icon && <Icon size={26} className="text-white" />}
-            </div>
-          </div>
-          <h1 className="section-heading mb-4" style={{ color: 'var(--heading-on-dark)' }}>
-            {service.title}
-          </h1>
-          <p className="text-lg max-w-2xl leading-relaxed mb-8" style={{ color: 'rgba(255,255,255,0.78)' }}>
-            {service.description}
-          </p>
-          <a href="#contact" className="btn-accent text-xs">Get Support Now</a>
-        </div>
-      </section>
+        <a href="#contact" className="btn-accent mt-10">
+          Get Support Now
+          <ArrowRight size={15} />
+        </a>
+      </PageHero>
 
       {/* ── Overview ──────────────────────────────────────────────── */}
       <section className="section-pad bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-            <div>
-              <p className="eyebrow mb-3">Overview</p>
-              <h2 className="section-heading mb-5" style={{ color: 'var(--text-base)' }}>
+        <div className="container-x">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 items-start">
+            <div className="lg:col-span-6">
+              <p className="eyebrow mb-6">Overview</p>
+              <h2 className="section-heading mb-10" style={{ color: 'var(--text-base)' }}>
                 What We Deliver
               </h2>
               {page.overviewPoints ? (
-                <div className="space-y-4 mb-8">
-                  {page.overviewPoints.map((point) => (
-                    <div key={point.title}>
-                      <h3 className="text-sm font-bold mb-1" style={{ color: 'var(--text-base)' }}>
-                        {point.title}
-                      </h3>
-                      <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-                        {point.description}
-                      </p>
+                <div className="border-t hairline mb-10">
+                  {page.overviewPoints.map((point, i) => (
+                    <div key={point.title} className="grid grid-cols-[2.5rem_1fr] gap-3 py-6 border-b hairline">
+                      <span className="index-num pt-0.5">{String(i + 1).padStart(2, '0')}</span>
+                      <div>
+                        <h3 className="font-heading text-xl mb-2" style={{ fontWeight: 500, color: 'var(--text-base)' }}>
+                          {point.title}
+                        </h3>
+                        <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                          {point.description}
+                        </p>
+                      </div>
                     </div>
                   ))}
                 </div>
               ) : (
-                <p className="text-base leading-relaxed mb-8" style={{ color: 'var(--text-muted)' }}>
+                <p className="lead mb-10">
                   {page.intro}
                 </p>
               )}
-              <a href="#contact" className="btn-accent text-xs">Start a Project</a>
+              <a href="#contact" className="btn-dark">
+                Start a Project
+                <ArrowRight size={15} />
+              </a>
             </div>
-            <div className="relative">
-              <img
-                src={page.sectionImage}
-                alt={service.title}
-                className="w-full object-cover"
-                style={{ height: '400px' }}
-                loading="lazy"
-              />
-              <div
-                className="absolute -bottom-3 -left-3 w-24 h-24"
-                style={{ backgroundColor: 'var(--accent)', opacity: 0.15 }}
-              />
+            <div className="lg:col-span-6">
+              <div className="img-frame aspect-[4/3]">
+                <img src={page.sectionImage} alt={service.title} loading="lazy" />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* ── Deliverables ──────────────────────────────────────────── */}
-      <section className="section-pad" style={{ backgroundColor: 'var(--section-dark)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <p className="eyebrow mb-3">Deliverables</p>
-            <h2 className="section-heading mb-3" style={{ color: 'var(--heading-on-dark)' }}>
-              What's Included
-            </h2>
-            <p className="text-sm max-w-xl mx-auto" style={{ color: 'var(--text-faint)' }}>
+      <section className="section-pad" style={{ backgroundColor: 'var(--section-alt)' }}>
+        <div className="container-x">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end mb-14">
+            <div className="lg:col-span-6">
+              <p className="eyebrow mb-6">Deliverables</p>
+              <h2 className="section-heading" style={{ color: 'var(--text-base)' }}>
+                What's Included
+              </h2>
+            </div>
+            <p className="lead lg:col-span-6">
               Every engagement includes clean, organized files delivered in your preferred format.
             </p>
           </div>
           <div className={page.deliverablesImage
-            ? 'grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)] gap-8 items-center'
-            : 'max-w-4xl mx-auto'}
+            ? 'grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)] gap-12 items-center'
+            : ''}
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 border-t hairline">
               {page.deliverables.map((item) => (
-                <div key={item} className="flex items-start gap-3 p-4" style={{ backgroundColor: 'rgba(255,255,255,0.04)', borderLeft: `3px solid var(--accent)` }}>
-                  <span
-                    className="flex-shrink-0 flex items-center justify-center w-5 h-5 mt-0.5"
-                    style={{ backgroundColor: 'var(--accent)' }}
-                  >
-                    <Check size={11} className="text-white" strokeWidth={3} />
-                  </span>
-                  <span className="text-sm leading-relaxed" style={{ color: 'var(--text-faint)' }}>
+                <li key={item} className="flex items-start gap-4 py-5 border-b hairline">
+                  <Check size={16} strokeWidth={2} className="flex-shrink-0 mt-1" style={{ color: 'var(--accent-dark)' }} />
+                  <span className="text-[0.95rem] leading-relaxed" style={{ color: 'var(--text-base)' }}>
                     {item}
                   </span>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
             {page.deliverablesImage && (
-              <img
-                src={page.deliverablesImage}
-                alt={`${service.title} deliverables example`}
-                className="w-full h-full max-h-[420px] object-cover"
-                loading="lazy"
-              />
+              <div className="img-frame max-h-[420px]">
+                <img src={page.deliverablesImage} alt={`${service.title} deliverables example`} loading="lazy" />
+              </div>
             )}
           </div>
         </div>
       </section>
 
       {/* ── For Whom ──────────────────────────────────────────────── */}
-      <section className="section-pad" style={{ backgroundColor: 'var(--section-alt)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <p className="eyebrow mb-3">Who It's For</p>
-            <h2 className="section-heading mb-3" style={{ color: 'var(--text-base)' }}>
+      <section className="section-pad bg-white">
+        <div className="container-x">
+          <div className="mb-14">
+            <p className="eyebrow mb-6">Who It's For</p>
+            <h2 className="section-heading" style={{ color: 'var(--text-base)' }}>
               Perfect For
             </h2>
           </div>
           <div className={page.forWhomImage
-            ? 'grid grid-cols-1 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] gap-6 items-stretch'
-            : 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'}
+            ? 'grid grid-cols-1 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] gap-12 items-stretch'
+            : ''}
           >
-            <div className={page.forWhomImage ? 'grid grid-cols-1 sm:grid-cols-2 gap-6' : 'contents'}>
-              {page.forWhom.map((item) => (
-                <div
-                  key={item.title}
-                  className="bg-white p-6 card-lift"
-                  style={{ borderTop: `3px solid var(--accent)` }}
-                >
-                  <h3
-                    className="text-sm font-700 mb-2"
-                    style={{ fontWeight: 700, color: 'var(--text-base)' }}
-                  >
+            <div className={`grid grid-cols-1 sm:grid-cols-2 ${page.forWhomImage ? '' : 'lg:grid-cols-4'} gap-x-10`}>
+              {page.forWhom.map((item, i) => (
+                <div key={item.title} className="py-8 border-t hairline">
+                  <span className="index-num block mb-4">{String(i + 1).padStart(2, '0')}</span>
+                  <h3 className="font-heading text-xl mb-3" style={{ fontWeight: 500, color: 'var(--text-base)' }}>
                     {item.title}
                   </h3>
-                  <p className="text-xs leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
                     {item.desc}
                   </p>
                 </div>
               ))}
             </div>
             {page.forWhomImage && (
-              <img
-                src={page.forWhomImage}
-                alt={`${service.title} programming interface`}
-                className="w-full h-full min-h-[220px] max-h-[400px] object-cover"
-                loading="lazy"
-              />
+              <div className="img-frame min-h-[260px] max-h-[440px]">
+                <img src={page.forWhomImage} alt={`${service.title} programming interface`} loading="lazy" />
+              </div>
             )}
           </div>
         </div>
       </section>
 
       {/* ── Other Services ────────────────────────────────────────── */}
-      <OtherServices currentSlug={slug} />
+      <div className="border-t hairline">
+        <OtherServices currentSlug={slug} />
+      </div>
 
       {/* ── CTA ───────────────────────────────────────────────────── */}
       <CallToAction />

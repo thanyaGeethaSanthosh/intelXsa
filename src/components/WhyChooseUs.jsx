@@ -1,5 +1,12 @@
-import { Check } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { content } from '../config/content'
+
+// Points are written as "Title: description" — split so the title can be set apart.
+function splitPoint(point) {
+  const idx = point.indexOf(':')
+  if (idx === -1) return { title: null, body: point }
+  return { title: point.slice(0, idx + 1), body: point.slice(idx + 1).trim() }
+}
 
 export default function WhyChooseUs() {
   const { eyebrow, heading, description, points, cta, backgroundImage } = content.whyChooseUs
@@ -8,27 +15,36 @@ export default function WhyChooseUs() {
       className="relative bg-cover bg-center img-overlay section-pad"
       style={{ backgroundImage: `url('${backgroundImage}')` }}
     >
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl">
-          <p className="eyebrow mb-3">{eyebrow}</p>
-          <h2 className="section-heading mb-5 whitespace-pre-line" style={{ color: 'var(--heading-on-dark)' }}>{heading}</h2>
-          <p className="text-white/75 text-lg leading-relaxed mb-8">{description}</p>
+      <div className="container-x">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20">
+          <div className="lg:col-span-5">
+            <p className="eyebrow on-dark mb-6">{eyebrow}</p>
+            <h2 className="section-heading mb-6 whitespace-pre-line" style={{ color: 'var(--heading-on-dark)' }}>
+              {heading}
+            </h2>
+            <p className="text-white/70 text-[1.0625rem] leading-relaxed mb-10">{description}</p>
+            <a href="#contact" className="btn-accent">
+              {cta}
+              <ArrowRight size={15} />
+            </a>
+          </div>
 
-          <ul className="space-y-3 mb-10">
-            {points.map((point) => (
-              <li key={point} className="flex items-start gap-3">
-                <span
-                  className="flex-shrink-0 flex items-center justify-center w-5 h-5 rounded-full mt-0.5"
-                  style={{ backgroundColor: 'var(--accent)' }}
-                >
-                  <Check size={11} className="text-white" strokeWidth={3} />
-                </span>
-                <span className="text-white/85 text-sm leading-relaxed">{point}</span>
-              </li>
-            ))}
+          <ul className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-x-10 border-t hairline-d">
+            {points.map((point, i) => {
+              const { title, body } = splitPoint(point)
+              return (
+                <li key={point} className="py-8 border-b hairline-d on-dark">
+                  <span className="index-num block mb-4">{String(i + 1).padStart(2, '0')}</span>
+                  {title && (
+                    <h3 className="font-heading text-xl text-white mb-3" style={{ fontWeight: 500 }}>
+                      {title}
+                    </h3>
+                  )}
+                  <p className="text-sm leading-relaxed text-white/65">{body}</p>
+                </li>
+              )
+            })}
           </ul>
-
-          <a href="#contact" className="btn-accent text-xs">{cta}</a>
         </div>
       </div>
     </section>

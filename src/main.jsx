@@ -13,6 +13,7 @@ function applyTheme() {
     root.style.setProperty(`--${toKebab(key)}`, value)
   })
   root.style.setProperty('--font-family', theme.fontFamily)
+  root.style.setProperty('--font-heading', theme.headingFontFamily)
 }
 
 applyTheme()

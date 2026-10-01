@@ -1,21 +1,9 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { Mail, Globe, Clock, Home, ChevronRight, Pencil, Lock, Send } from 'lucide-react'
+import { Mail, Globe, Clock, Pencil, Lock, Send } from 'lucide-react'
 import { content } from '../config/content'
+import PageHero from '../components/PageHero'
 
 const iconMap = { Mail, Globe, Clock }
-
-function Breadcrumb() {
-  return (
-    <nav className="flex items-center gap-2 text-xs mb-6" style={{ color: 'var(--text-faint)' }}>
-      <Link to="/" className="flex items-center gap-1 hover:text-white transition-colors">
-        <Home size={12} /><span>Home</span>
-      </Link>
-      <ChevronRight size={12} style={{ color: 'var(--text-muted)' }} />
-      <span className="text-white font-medium">Contact</span>
-    </nav>
-  )
-}
 
 function buildEmailBody(f) {
   const service = f.service || 'General Enquiry'
@@ -80,47 +68,34 @@ export default function ContactPage() {
     setTimeout(() => setSent(false), 4000)
   }
 
-  const inputCls = `w-full px-4 py-3 text-sm border outline-none transition-colors focus:border-accent`
+  const inputCls = `w-full px-4 py-3.5 text-sm border outline-none transition-colors focus:border-accent-dark`
   const inputStyle = { borderColor: 'var(--border-base)', color: 'var(--text-base)', backgroundColor: '#fff' }
 
   return (
     <>
       {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section
-        className="relative flex items-end bg-cover bg-center img-overlay pt-16"
-        style={{ minHeight: '40vh', background: `linear-gradient(135deg, var(--primary) 0%, var(--section-dark) 100%)` }}
-      >
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14 pt-8">
-          <Breadcrumb />
-          <p className="eyebrow mb-3">{contact.eyebrow}</p>
-          <h1 className="section-heading mb-3" style={{ color: 'var(--heading-on-dark)' }}>
-            {contact.heading}
-          </h1>
-          <p className="text-base max-w-xl leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>
-            {contact.description}
-          </p>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ label: 'Contact' }]}
+        eyebrow={<p className="eyebrow on-dark">{contact.eyebrow}</p>}
+        title={contact.heading}
+        description={contact.description}
+        background="linear-gradient(135deg, var(--primary) 0%, var(--section-dark) 100%)"
+      />
 
       {/* ── Info Cards ────────────────────────────────────────────── */}
-      <section style={{ backgroundColor: 'var(--section-dark)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
+      <section className="bg-white border-b hairline">
+        <div className="container-x">
+          <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-divider">
             {contact.cards.map((card) => {
               const Icon = iconMap[card.icon]
               return (
-                <div key={card.label} className="flex items-center gap-4 px-6 py-7">
-                  <div
-                    className="flex items-center justify-center w-10 h-10 flex-shrink-0"
-                    style={{ backgroundColor: 'var(--accent)' }}
-                  >
-                    {Icon && <Icon size={18} className="text-white" />}
-                  </div>
+                <div key={card.label} className="flex items-center gap-5 py-8 sm:px-8 sm:first:pl-0">
+                  {Icon && <Icon size={24} strokeWidth={1.4} className="flex-shrink-0" style={{ color: 'var(--accent-dark)' }} />}
                   <div>
-                    <p className="text-xs uppercase tracking-widest mb-0.5" style={{ color: 'var(--text-muted)' }}>
+                    <p className="text-[0.7rem] uppercase tracking-[0.2em] mb-1" style={{ color: 'var(--text-muted)' }}>
                       {card.label}
                     </p>
-                    <p className="text-sm font-600 text-white" style={{ fontWeight: 600 }}>
+                    <p className="font-heading text-lg" style={{ fontWeight: 500, color: 'var(--text-base)' }}>
                       {card.value}
                     </p>
                   </div>
@@ -133,12 +108,12 @@ export default function ContactPage() {
 
       {/* ── Form + Email Preview ──────────────────────────────────── */}
       <section className="section-pad" style={{ backgroundColor: 'var(--section-alt)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-x">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
 
             {/* ── Left: Form ───────────────────────────────────────── */}
-            <div className="bg-white p-8" style={{ border: '1px solid var(--border-base)' }}>
-              <h2 className="text-xl font-700 mb-6" style={{ fontWeight: 700, color: 'var(--text-base)' }}>
+            <div className="bg-white p-8 sm:p-10" style={{ border: '1px solid var(--border-base)' }}>
+              <h2 className="font-heading text-2xl mb-8" style={{ fontWeight: 500, color: 'var(--text-base)' }}>
                 Send Us a Message
               </h2>
 
@@ -146,7 +121,7 @@ export default function ContactPage() {
                 {/* Row 1 */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-600 uppercase tracking-widest mb-1.5" style={{ color: 'var(--text-muted)', fontWeight: 600 }}>
+                    <label className="block text-[0.7rem] font-600 uppercase tracking-[0.16em] mb-2" style={{ color: 'var(--text-muted)', fontWeight: 600 }}>
                       Full Name <span style={{ color: 'var(--accent)' }}>*</span>
                     </label>
                     <input
@@ -156,7 +131,7 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-600 uppercase tracking-widest mb-1.5" style={{ color: 'var(--text-muted)', fontWeight: 600 }}>
+                    <label className="block text-[0.7rem] font-600 uppercase tracking-[0.16em] mb-2" style={{ color: 'var(--text-muted)', fontWeight: 600 }}>
                       Company <span style={{ color: 'var(--accent)' }}>*</span>
                     </label>
                     <input
@@ -170,7 +145,7 @@ export default function ContactPage() {
                 {/* Row 2 */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-600 uppercase tracking-widest mb-1.5" style={{ color: 'var(--text-muted)', fontWeight: 600 }}>
+                    <label className="block text-[0.7rem] font-600 uppercase tracking-[0.16em] mb-2" style={{ color: 'var(--text-muted)', fontWeight: 600 }}>
                       Email <span style={{ color: 'var(--accent)' }}>*</span>
                     </label>
                     <input
@@ -180,7 +155,7 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-600 uppercase tracking-widest mb-1.5" style={{ color: 'var(--text-muted)', fontWeight: 600 }}>
+                    <label className="block text-[0.7rem] font-600 uppercase tracking-[0.16em] mb-2" style={{ color: 'var(--text-muted)', fontWeight: 600 }}>
                       Phone
                     </label>
                     <input
@@ -193,7 +168,7 @@ export default function ContactPage() {
 
                 {/* Service dropdown */}
                 <div>
-                  <label className="block text-xs font-600 uppercase tracking-widest mb-1.5" style={{ color: 'var(--text-muted)', fontWeight: 600 }}>
+                  <label className="block text-[0.7rem] font-600 uppercase tracking-[0.16em] mb-2" style={{ color: 'var(--text-muted)', fontWeight: 600 }}>
                     Service Required <span style={{ color: 'var(--accent)' }}>*</span>
                   </label>
                   <select
@@ -209,7 +184,7 @@ export default function ContactPage() {
 
                 {/* Message */}
                 <div>
-                  <label className="block text-xs font-600 uppercase tracking-widest mb-1.5" style={{ color: 'var(--text-muted)', fontWeight: 600 }}>
+                  <label className="block text-[0.7rem] font-600 uppercase tracking-[0.16em] mb-2" style={{ color: 'var(--text-muted)', fontWeight: 600 }}>
                     Project Details <span style={{ color: 'var(--accent)' }}>*</span>
                   </label>
                   <textarea
@@ -229,12 +204,12 @@ export default function ContactPage() {
             {/* ── Right: Email Preview ──────────────────────────────── */}
             <div className="flex flex-col">
               <div
-                className="flex-1 bg-white p-8 flex flex-col"
+                className="flex-1 bg-white p-8 sm:p-10 flex flex-col"
                 style={{ border: '1px solid var(--border-base)' }}
               >
                 {/* Header row */}
                 <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-xl font-700" style={{ fontWeight: 700, color: 'var(--text-base)' }}>
+                  <h2 className="font-heading text-2xl" style={{ fontWeight: 500, color: 'var(--text-base)' }}>
                     Generated Email
                   </h2>
                   <button
@@ -309,7 +284,7 @@ export default function ContactPage() {
                 type="button"
                 onClick={handleSend}
                 disabled={!form.name || !form.company || !form.email || !form.service || !form.message}
-                className="flex items-center justify-center gap-2 w-full py-4 text-sm font-700 uppercase tracking-widest transition-all mt-4"
+                className="flex items-center justify-center gap-2 w-full py-4 text-xs font-700 uppercase tracking-[0.16em] transition-all mt-4"
                 style={{
                   fontWeight: 700,
                   backgroundColor: sent ? 'var(--section-dark)' : 'var(--accent)',

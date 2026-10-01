@@ -1,37 +1,41 @@
-import { FlaskConical, Building2, Network, HardHat, Briefcase, Database, Activity } from 'lucide-react'
 import { content } from '../config/content'
-
-const iconMap = { FlaskConical, Building2, Network, HardHat, Briefcase, Database, Activity }
+import { industryIconMap } from '../config/icons'
 
 export default function Industries() {
   const { heading, subheading, items } = content.industries
   return (
     <section className="section-pad bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
-          <p className="eyebrow mb-3">Who We Serve</p>
-          <h2 className="section-heading mb-4">{heading}</h2>
-          <p className="text-base max-w-xl mx-auto" style={{ color: 'var(--text-muted)' }}>
+      <div className="container-x">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end mb-16">
+          <div className="lg:col-span-6">
+            <p className="eyebrow mb-6">Who We Serve</p>
+            <h2 className="section-heading" style={{ color: 'var(--text-base)' }}>{heading}</h2>
+          </div>
+          <p className="lead lg:col-span-6">
             {subheading}
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div
+          className="grid grid-cols-2 lg:grid-cols-4 gap-px border"
+          style={{ backgroundColor: 'var(--border-base)', borderColor: 'var(--border-base)' }}
+        >
           {items.map((item) => {
-            const Icon = iconMap[item.icon]
+            const Icon = industryIconMap[item.icon]
             return (
               <div
                 key={item.title}
-                className="flex flex-col items-center text-center p-8 card-lift cursor-default border border-divider"
-                style={{ borderColor: 'var(--border-base)' }}
+                className="group flex flex-col items-start gap-6 p-6 sm:p-8 bg-white transition-colors hover:bg-section-alt"
               >
-                <div
-                  className="flex items-center justify-center w-14 h-14 mb-4 rounded-full"
-                  style={{ backgroundColor: 'var(--section-dark)' }}
-                >
-                  {Icon && <Icon size={24} className="text-white" />}
-                </div>
-                <span className="text-sm font-600" style={{ fontWeight: 600, color: 'var(--text-base)' }}>
+                {Icon && (
+                  <Icon
+                    size={28}
+                    strokeWidth={1.3}
+                    className="transition-colors"
+                    style={{ color: 'var(--accent-dark)' }}
+                  />
+                )}
+                <span className="font-heading text-lg leading-snug" style={{ fontWeight: 500, color: 'var(--text-base)' }}>
                   {item.title}
                 </span>
               </div>

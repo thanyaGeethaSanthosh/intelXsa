@@ -28,5 +28,6 @@ export const theme = {
   },
 
   // ── Typography ──────────────────────────────────────────────────
-  fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif",
+  fontFamily:        "'Inter', 'Helvetica Neue', Arial, sans-serif",
+  headingFontFamily: "'Source Serif 4', Georgia, 'Times New Roman', serif",
 }

@@ -1,45 +1,61 @@
+import { Link } from 'react-router-dom'
+import { ArrowUpRight } from 'lucide-react'
 import { content } from '../config/content'
 import { serviceIconMap } from '../config/icons'
 
 export default function ServiceHighlights() {
   const { heading, description, backgroundImage, items } = content.serviceHighlights
+  const slugs = content.services.items.map((s) => s.slug)
+
   return (
-    <section
-      id="services"
-      className="relative bg-cover bg-center img-overlay"
-      style={{ backgroundImage: `url('${backgroundImage}')` }}
-    >
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="max-w-3xl mx-auto text-center mb-10">
-          <p className="eyebrow mb-3">Remote Project Support</p>
-          <h2 className="section-heading mb-4" style={{ color: 'var(--heading-on-dark)' }}>
-            {heading}
-          </h2>
-          <p className="text-base leading-relaxed" style={{ color: 'var(--text-faint)' }}>
+    <section id="services" className="section-pad bg-white">
+      <div className="container-x">
+        {/* Header: heading left, description right */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end mb-16">
+          <div className="lg:col-span-6">
+            <p className="eyebrow mb-6">Remote Project Support</p>
+            <h2 className="section-heading" style={{ color: 'var(--text-base)' }}>
+              {heading}
+            </h2>
+          </div>
+          <p className="lead lg:col-span-6">
             {description}
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-white/15">
-          {items.map((item) => {
+
+        {/* Wide image band */}
+        <div className="img-frame aspect-[16/9] sm:aspect-[21/8] mb-20">
+          <img src={backgroundImage} alt="" loading="lazy" />
+        </div>
+
+        {/* Service list */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 border-t hairline">
+          {items.map((item, i) => {
             const Icon = serviceIconMap[item.icon]
             return (
-              <div
+              <Link
                 key={item.title}
-                className="flex flex-col items-center text-center px-5 py-8 bg-black/80 card-lift cursor-default group"
+                to={`/services/${slugs[i]}`}
+                className="group flex flex-col pt-8 pb-10 sm:pr-8 lg:px-6 lg:first:pl-0 lg:border-l lg:first:border-l-0 border-b lg:border-b-0 hairline transition-colors"
               >
-                <div
-                  className="flex items-center justify-center w-14 h-14 mb-5 rounded-full transition-colors duration-200"
-                  style={{ backgroundColor: 'var(--accent)' }}
-                >
-                  {Icon && <Icon size={24} className="text-white" />}
+                <div className="flex items-center justify-between mb-8">
+                  <span className="index-num">{String(i + 1).padStart(2, '0')}</span>
+                  <ArrowUpRight
+                    size={16}
+                    className="text-faint transition-all duration-200 group-hover:text-accent-dark group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  />
                 </div>
-                <h3 className="text-white font-700 text-base mb-2 leading-snug" style={{ fontWeight: 700 }}>
+                {Icon && <Icon size={26} strokeWidth={1.4} className="mb-5" style={{ color: 'var(--accent-dark)' }} />}
+                <h3
+                  className="font-heading text-xl leading-snug mb-3 transition-colors group-hover:text-accent-dark"
+                  style={{ fontWeight: 500, color: 'var(--text-base)' }}
+                >
                   {item.title}
                 </h3>
-                <p className="text-sm leading-relaxed" style={{ color: 'var(--text-faint)' }}>
+                <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
                   {item.description}
                 </p>
-              </div>
+              </Link>
             )
           })}
         </div>

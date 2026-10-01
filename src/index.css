@@ -10,7 +10,7 @@ body {
   color: var(--text-base);
   background-color: #ffffff;
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -21,16 +21,12 @@ html {
   scroll-padding-top: 5rem;
 }
 
-/* ── Reusable section padding ─────────────────────────────────────── */
-.section-pad { padding: 112px 0; }
+/* ── Layout ───────────────────────────────────────────────────────── */
+.section-pad { padding: 128px 0; }
 
-/* ── Minimalist layout rhythm ─────────────────────────────────────── */
-section > .max-w-7xl {
-  width: min(100% - 3rem, 1180px);
-}
-
-section > .max-w-7xl > * {
-  min-width: 0;
+.container-x {
+  width: min(100% - 3rem, 1200px);
+  margin-inline: auto;
 }
 
 a,
@@ -57,62 +53,156 @@ button {
 }
 .img-overlay > * { position: relative; z-index: 1; }
 
-/* ── Accent button ────────────────────────────────────────────────── */
-.btn-accent {
-  display: inline-block;
-  background-color: var(--accent);
-  color: #ffffff;
+@layer components {
+
+/* ── Typography ───────────────────────────────────────────────────── */
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.section-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.6vw, 2.9rem);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+}
+
+.display-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5.6vw, 4.5rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.06;
+}
+
+.lead {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
+/* Eyebrow label with a short rule in front — classic editorial marker */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  padding: 13px 28px;
-  transition: background-color 0.2s ease, transform 0.15s ease;
+  color: var(--accent-dark);
+}
+.eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background-color: currentColor;
+}
+.eyebrow.on-dark { color: var(--accent); }
+
+/* Small numeric index (01, 02…) */
+.index-num {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--accent-dark);
+}
+.on-dark .index-num,
+.index-num.on-dark { color: var(--accent); }
+
+/* ── Buttons ──────────────────────────────────────────────────────── */
+.btn-accent,
+.btn-outline,
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 15px 30px;
+  border: 1px solid transparent;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.btn-accent {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
 }
 .btn-accent:hover {
   background-color: var(--accent-dark);
-  transform: translateY(-1px);
+  border-color: var(--accent-dark);
 }
 
-/* ── Outline button ───────────────────────────────────────────────── */
 .btn-outline {
-  display: inline-block;
-  border: 2px solid #ffffff;
+  border-color: rgba(255, 255, 255, 0.6);
   color: #ffffff;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  padding: 11px 28px;
-  transition: background-color 0.2s ease, color 0.2s ease;
 }
 .btn-outline:hover {
   background-color: #ffffff;
+  border-color: #ffffff;
   color: var(--primary);
 }
 
-/* ── Eyebrow label ────────────────────────────────────────────────── */
-.eyebrow {
+.btn-dark {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+}
+.btn-dark:hover {
+  background-color: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+/* Text link with an underline that grows on hover */
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-dark);
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  padding-bottom: 3px;
+  transition: background-size 0.3s ease;
 }
+.text-link:hover { background-size: 100% 1px; }
 
-/* ── Section heading ─────────────────────────────────────────────── */
-.section-heading {
-  font-size: clamp(1.75rem, 3.5vw, 2.6rem);
-  font-weight: 700;
-  letter-spacing: -0.035em;
-  line-height: 1.12;
+/* ── Hairlines ────────────────────────────────────────────────────── */
+.hairline   { border-color: var(--border-base); }
+.hairline-d { border-color: rgba(255, 255, 255, 0.14); }
+
+/* ── Image frame ─────────────────────────────────────────────────── */
+.img-frame {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--section-alt);
 }
+.img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+.img-frame:hover img { transform: scale(1.02); }
 
-/* ── Card hover lift ─────────────────────────────────────────────── */
+/* ── Card hover ──────────────────────────────────────────────────── */
 .card-lift {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
 }
 .card-lift:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border-color: var(--accent-dark);
+}
+
 }
 
 /* ── Scrollbar thin ──────────────────────────────────────────────── */
@@ -122,14 +212,10 @@ button {
 
 /* ── Responsive refinement ───────────────────────────────────────── */
 @media (max-width: 640px) {
-  .section-pad { padding: 80px 0; }
+  .section-pad { padding: 88px 0; }
 
-  section > .max-w-7xl {
-    width: min(100% - 2rem, 1180px);
-  }
-
-  .section-heading {
-    letter-spacing: -0.025em;
+  .container-x {
+    width: min(100% - 2rem, 1200px);
   }
 }
 
