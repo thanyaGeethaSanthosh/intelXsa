@@ -9,15 +9,39 @@ body {
   font-family: var(--font-family);
   color: var(--text-base);
   background-color: #ffffff;
+  font-size: 16px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /* ── Smooth scroll ────────────────────────────────────────────────── */
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
 
 /* ── Reusable section padding ─────────────────────────────────────── */
-.section-pad { padding: 80px 0; }
+.section-pad { padding: 112px 0; }
+
+/* ── Minimalist layout rhythm ─────────────────────────────────────── */
+section > .max-w-7xl {
+  width: min(100% - 3rem, 1180px);
+}
+
+section > .max-w-7xl > * {
+  min-width: 0;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
 
 /* ── Overlay helper ───────────────────────────────────────────────── */
 .img-overlay {
@@ -41,7 +65,7 @@ html { scroll-behavior: smooth; }
   font-weight: 600;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  padding: 14px 32px;
+  padding: 13px 28px;
   transition: background-color 0.2s ease, transform 0.15s ease;
 }
 .btn-accent:hover {
@@ -57,7 +81,7 @@ html { scroll-behavior: smooth; }
   font-weight: 600;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  padding: 12px 30px;
+  padding: 11px 28px;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 .btn-outline:hover {
@@ -76,9 +100,10 @@ html { scroll-behavior: smooth; }
 
 /* ── Section heading ─────────────────────────────────────────────── */
 .section-heading {
-  font-size: clamp(1.75rem, 4vw, 2.75rem);
-  font-weight: 800;
-  line-height: 1.15;
+  font-size: clamp(1.75rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
 }
 
 /* ── Card hover lift ─────────────────────────────────────────────── */
@@ -86,11 +111,34 @@ html { scroll-behavior: smooth; }
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .card-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
 }
 
 /* ── Scrollbar thin ──────────────────────────────────────────────── */
 ::-webkit-scrollbar       { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border-base); border-radius: 3px; }
+
+/* ── Responsive refinement ───────────────────────────────────────── */
+@media (max-width: 640px) {
+  .section-pad { padding: 80px 0; }
+
+  section > .max-w-7xl {
+    width: min(100% - 2rem, 1180px);
+  }
+
+  .section-heading {
+    letter-spacing: -0.025em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
